@@ -1,0 +1,35 @@
+prompt_command () {
+# __git_ps1 cannot be trusted
+#    echo $LAST_COMMAND_INDICATOR 
+#    echo $GIT_PROMPT_LAST_COMMAND_STATE
+    
+    local TIME=$(date "+%Y-%m-%d %H:%M:%S %Z")
+    local GREEN="\[\033[0;32m\]"
+    local CYAN="\[\033[0;36m\]"
+    local BCYAN="\[\033[1;36m\]"
+    local BLUE="\[\033[0;34m\]"
+    local LBLUE="\[\033[1;34m\]"
+    local GRAY="\[\033[0;37m\]"
+    local DKGRAY="\[\033[1;30m\]"
+    local WHITE="\[\033[1;37m\]"
+    local RED="\[\033[0;31m\]"
+    # return color to Terminal setting for text color
+    local DEFAULT="\[\033[0;39m\]"
+    
+    local PWDLEN=$(pwd | wc -m)
+    local PROMPTLEN=$( echo "$(whoami)@$(hostname -s):" | wc -m)
+
+    export GIT_PROMPT_ONLY_IN_REPO=0
+    export GIT_PROMPT_LEADING_SPACE=0
+   
+    export GIT_PROMPT_START_USER=$(printf "${WHITE}%*s\r%s\n" "$(tput cols)" "${TIME}" "_LAST_COMMAND_INDICATOR_${LBLUE}\u@\h:${PWD}\n")
+    export GIT_PROMPT_END_USER="${DEFAULT}\$ "
+
+#    export GIT_PROMPT_START_USER=START_USER
+#    export GIT_PROMPT_END_USER=END_USER
+
+}
+
+PROMPT_COMMAND=prompt_command
+
+
