@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=$(ls .bash*)
+FILES=$(ls .bash* .vim*)
 
 for file in $FILES 
  do 
