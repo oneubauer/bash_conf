@@ -1,7 +1,5 @@
 alias oxrandr='xrandr --auto --output DP-1 --mode 1920x1080 --right-of DVI-I-1'
 
-alias vi=vim.tiny
-
 alias ls='ls --color=auto'
 alias passwords='gpg -d /home/olivern/.private/PASSWDS | less'
 
