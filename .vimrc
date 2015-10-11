@@ -5,7 +5,7 @@ set t_Co=256
 colorscheme twilight256
 set tabstop=4 
 set softtabstop=4 
-set expandtab
+"set expandtab
 
 set showcmd  
 set cursorline
@@ -21,4 +21,4 @@ let mapleader=","
 nnoremap <leader><space> :nohlsearch<CR>
 
 " toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
+"nnoremap <leader>u :GundoToggle<CR>

@@ -1,0 +1,3 @@
+# add for vim themes:
+
+git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
