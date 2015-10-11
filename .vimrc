@@ -5,7 +5,7 @@ set t_Co=256
 colorscheme twilight256
 set tabstop=4 
 set softtabstop=4 
-set expandtab
+"set expandtab
 
 set showcmd  
 set cursorline
