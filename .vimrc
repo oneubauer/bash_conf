@@ -21,4 +21,4 @@ let mapleader=","
 nnoremap <leader><space> :nohlsearch<CR>
 
 " toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
+"nnoremap <leader>u :GundoToggle<CR>
