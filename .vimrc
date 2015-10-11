@@ -1,6 +1,8 @@
 set number
 syntax enable
 
+set t_Co=256
+colorscheme twilight256
 set tabstop=4 
 set softtabstop=4 
 set expandtab
