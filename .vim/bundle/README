@@ -1,5 +1,0 @@
-if you want to add a plugin from git, issue:
-
-git submodule add $url
-
-thereafter, be sure to use git clone --recursive on the root
