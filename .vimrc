@@ -19,6 +19,8 @@ set cursorline
 hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkred guifg=white
 
+" for airline
+set laststatus=2
 
 set showmatch
 
