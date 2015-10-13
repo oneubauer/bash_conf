@@ -16,6 +16,9 @@ set softtabstop=4
 
 set showcmd  
 set cursorline
+hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkred guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkred guifg=white
+
 
 set showmatch
 
