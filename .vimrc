@@ -3,7 +3,9 @@ filetype off " Pathogen needs to run before plugin indent on
 execute pathogen#infect()
 execute pathogen#helptags()
 " generate helptags for everything in 'runtimepath'
-filetype plugin indent on
+if has ("autocmd")
+	filetype plugin indent on
+endif
 
 set number
 syntax enable
@@ -12,6 +14,8 @@ syntax enable
 set t_Co=256
 colorscheme twilight256
 set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set autoindent    " always set autoindenting on
 "set copyindent    " copy the previous indentation on autoindenting
 
