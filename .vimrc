@@ -31,6 +31,20 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+" moving between tabs
+map <C-S-]> gt
+map <C-S-[> gT
+map <C-1> 1gt
+map <C-2> 2gt
+map <C-3> 3gt
+map <C-4> 4gt
+map <C-5> 5gt
+map <C-6> 6gt
+map <C-7> 7gt
+map <C-8> 8gt
+map <C-9> 9gt
+map <C-0> :tablast<CR>
+
 
 " for airline
 set laststatus=2
@@ -47,6 +61,7 @@ set showmatch
 set incsearch
 set ignorecase smartcase
 set hlsearch
+set hidden
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
