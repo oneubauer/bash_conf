@@ -49,6 +49,7 @@ map <C-0> :tablast<CR>
 " for airline
 set laststatus=2
 
+
 "remap set list
 nmap <leader>l :set list!<CR>
 " nicer symbols for set list
