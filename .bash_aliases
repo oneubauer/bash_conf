@@ -11,4 +11,4 @@ alias irssi='/usr/local/scripts/launch_w_screen irssi'
 alias ssh='ssh -a'
 alias restart_awesome='echo "awesome.restart()" | awesome-client'
 
-alias k='kpcli --kdb=/work/SysEng/SysEngMaster.kdbx —readonly'
+alias k="kpcli --kdb=$HOME/Sync/work/SysEngMaster.kdbx —readonly"
