@@ -12,3 +12,6 @@ alias ssh='ssh -a'
 alias restart_awesome='echo "awesome.restart()" | awesome-client'
 
 alias k="kpcli --kdb=$HOME/Sync/work/SysEngMaster.kdbx —readonly"
+
+#oanda specific stuff:
+alias fz="/usr/local/scripts/work/find_zone.sh"
