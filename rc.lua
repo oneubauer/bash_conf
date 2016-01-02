@@ -64,7 +64,7 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    awful.layout.suit.floating,
+--    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -126,7 +126,8 @@ batterywidget = wibox.widget.textbox()
 function GetBatteryState()
   local command = "acpi -b | cut -d ':' -f 2,3 | sed 's/\\,//g' | sed s/^\\ //g"
   local fh = assert(io.popen(command, "r"))
-  local text = fh:read("*l")
+  local text = fh:read("*l") 
+  if not text then text = " " end
   fh:close()
   return text
 end
@@ -212,7 +213,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
-    left_layout:add(mylauncher)
+    -- left_layout:add(mylauncher)
     left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])
 
