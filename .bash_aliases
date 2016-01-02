@@ -11,7 +11,9 @@ alias irssi='/usr/local/scripts/launch_w_screen irssi'
 alias ssh='ssh -a'
 alias restart_awesome='echo "awesome.restart()" | awesome-client'
 
-alias k="kpcli --kdb=$HOME/Sync/work/SysEngMaster.kdbx —readonly"
-
+# gcal stuff
+alias gw="gcalcli --configFolder=~/.gcalcli_work"
+alias gp="gcalcli --configFolder=~/.gcalcli_personal"
 #oanda specific stuff:
 alias fz="/usr/local/scripts/work/find_zone.sh"
+alias k="kpcli --kdb=$HOME/Sync/work/SysEngMaster.kdbx —readonly"
