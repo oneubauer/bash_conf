@@ -46,7 +46,8 @@ end
 -- beautiful.init("/usr/share/awesome/themes/bamboo/theme.lua")
 -- beautiful.init("/usr/share/awesome/themes/dunzor/theme.lua")
 -- beautiful.init("/usr/share/awesome/themes/foo/theme.lua")
-beautiful.init("/usr/share/awesome/themes/wombat/theme.lua")
+-- beautiful.init("/usr/share/awesome/themes/wombat/theme.lua")
+beautiful.init("~/.config/awesome/themes/oliver/theme.lua")
 -- beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
