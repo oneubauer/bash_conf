@@ -13,8 +13,8 @@ alias restart_awesome='echo "awesome.restart()" | awesome-client'
 
 # gcal stuff
 # see https://github.com/insanum/gcalcli
-alias gw="gcalcli --configFolder=~/.gcalcli_work"
-alias gp="gcalcli --configFolder=~/.gcalcli_personal"
+alias gw="gcalcli --configFolder=~/Sync/calendar/.gcalcli_work"
+alias gp="gcalcli --configFolder=~/Sync/calendar/.gcalcli_personal"
 #oanda specific stuff:
 alias fz="/usr/local/scripts/work/find_zone.sh"
 alias k="kpcli --kdb=$HOME/Sync/work/SysEngMaster.kdbx —readonly"
