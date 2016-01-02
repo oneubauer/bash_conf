@@ -12,6 +12,7 @@ alias ssh='ssh -a'
 alias restart_awesome='echo "awesome.restart()" | awesome-client'
 
 # gcal stuff
+# see https://github.com/insanum/gcalcli
 alias gw="gcalcli --configFolder=~/.gcalcli_work"
 alias gp="gcalcli --configFolder=~/.gcalcli_personal"
 #oanda specific stuff:
