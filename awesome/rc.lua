@@ -121,7 +121,7 @@ mytextclock = awful.widget.textclock()
 batterywidget = wibox.widget.textbox()
 
 function GetBatteryState()
-  local command = "acpi -b | cut -d ':' -f 2,3 | sed 's/\\,//g' | sed s/^\\ //g"
+  local command = "acpi -b | cut -d ':' -f 2,3 | sed 's/\\,//g' | sed s/^\\ //g| sed s/Discharging/🔋/g | sed s/Charging/⚡/g "
   local fh = assert(io.popen(command, "r"))
   local text = fh:read("*l") 
   if not text then text = " " end
