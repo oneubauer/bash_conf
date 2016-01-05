@@ -69,3 +69,4 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 " toggle gundo
 "nnoremap <leader>u :GundoToggle<CR>
+set paste
