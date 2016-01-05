@@ -12,6 +12,9 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local cal = require("cal")
 
+-- awesome lain stuff  (git clone https://github.com/copycat-killer/lain.git ~/.config/awesome/lain)
+local lain = require("lain")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -65,6 +68,7 @@ local layouts =
 {
 --    awful.layout.suit.floating,
     awful.layout.suit.tile,
+	lain.layout.termfair,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
@@ -117,9 +121,24 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
-cal.register(mytextclock, "<b>%s</b>") 
+-- cal.register(mytextclock, "<b>%s</b>") 
+lain.widgets.calendar:attach(mytextclock)
+
 -- battery widget
 batterywidget = wibox.widget.textbox()
+
+-- alsa volume widget
+volumewidget = lain.widgets.alsabar()
+
+-- weather
+myweather = lain.widgets.weather({
+    APPID = "77489eefb4f667f17a9f3272a8d73ebf",
+    city_id = 6167865, -- placeholder
+    settings = function()
+        units = math.floor(weather_now["main"]["temp"])
+        widget:set_text(" " .. units .. " ")
+    end
+})
 
 function GetBatteryState()
   local command = "acpi -b | cut -d ':' -f 2,3 | sed 's/\\,//g' | sed s/^\\ //g| sed s/Discharging/🔋/g | sed s/Charging/⚡/g "
@@ -207,7 +226,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", screen = s})
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -217,8 +236,11 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+    -- right_layout:add(volumewidget)
     right_layout:add(batterywidget)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+	right_layout:add(myweather.icon)
+	right_layout:add(myweather)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -294,7 +316,13 @@ globalkeys = awful.util.table.join(
     -- awful.key({ modkey },            "b",     function () awful.util.spawn("/usr/bin/google-chrome") end),
     awful.key({ modkey },            "b",     function () awful.util.spawn("/opt/firefox/firefox") end),
     awful.key({ modkey },            "i",     function () awful.util.spawn("/usr/bin/google-chrome --incognito") end),
-
+    -- volume (pageup and pagedown)
+	awful.key({ modkey },			 "Prior", function () os.execute(string.format("amixer set %s 5%%+", volumewidget.channel))
+						                      volumewidget.update()
+    end),
+    awful.key({ modkey },            "Next",  function () os.execute(string.format("amixer set %s 5%%-", volumewidget.channel))
+											  volumewidget.update()
+    end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
@@ -482,3 +510,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- autostart stuff:
+os.execute("/usr/bin/parcellite &")
