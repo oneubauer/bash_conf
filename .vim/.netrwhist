@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/usr/share/vim/vim74/indent'
 let g:netrw_dirhist_2='/home/olivern/.wine'
 let g:netrw_dirhist_3='/tmp'
 let g:netrw_dirhist_4='/home/olivern/.config/awesome/themes/oliver'
+let g:netrw_dirhist_5='/home/oneubauer/.config/awesome'
+let g:netrw_dirhist_6='/home/oneubauer/Sync/work/trade_staging_migration'

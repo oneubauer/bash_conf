@@ -46,6 +46,10 @@ map <C-9> 9gt
 map <C-0> :tablast<CR>
 
 
+"if &diff
+"    colorscheme some_other_scheme
+"endif
+
 " for airline
 set laststatus=2
 
@@ -70,3 +74,4 @@ nnoremap <leader><space> :nohlsearch<CR>
 " toggle gundo
 "nnoremap <leader>u :GundoToggle<CR>
 set paste
+
