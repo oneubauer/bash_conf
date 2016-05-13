@@ -17,4 +17,6 @@ alias gw="gcalcli --configFolder=~/Sync/calendar/.gcalcli_work"
 alias gp="gcalcli --configFolder=~/Sync/calendar/.gcalcli_personal"
 #oanda specific stuff:
 alias fz="/usr/local/scripts/work/find_zone.sh"
-alias k="kpcli --kdb=$HOME/Sync/work/SysEngMaster.kdbx —readonly"
+alias k="kpcli --kdb=/mnts/SysEng/SysEngMaster.kdbx —readonly"
+
+alias bast="ssh oneubauer-bastion.engi.oanda.com"
