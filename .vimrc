@@ -10,6 +10,7 @@ endif
 set number
 syntax enable
 
+set relativenumber
 
 set t_Co=256
 colorscheme twilight256
