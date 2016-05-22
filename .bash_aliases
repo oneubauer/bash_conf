@@ -16,7 +16,15 @@ alias restart_awesome='echo "awesome.restart()" | awesome-client'
 alias gw="gcalcli --configFolder=~/Sync/calendar/.gcalcli_work"
 alias gp="gcalcli --configFolder=~/Sync/calendar/.gcalcli_personal"
 #oanda specific stuff:
-alias fz="/usr/local/scripts/work/find_zone.sh"
 alias k="kpcli --kdb=/mnts/SysEng/SysEngMaster.kdbx —readonly"
-
+alias zt="host -l $@.oanda.com"
 alias bast="ssh oneubauer-bastion.engi.oanda.com"
+# use function to allow for arguments
+alias zt='function _zt(){ if ! [ "$1" == "all" ] 
+                          then
+                             host -l $1.oanda.com
+                          else
+                             for d in ny4 engi ri stage perf t-tr2 g-tr2 stg ng 
+                             do host -l $d.oanda.com
+                             done
+                          fi; }; _zt'
