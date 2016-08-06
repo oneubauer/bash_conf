@@ -311,7 +311,9 @@ globalkeys = awful.util.table.join(
 
     -- Custom commands
     awful.key({ modkey },            "a",     function () awful.util.spawn("xscreensaver-command -lock") end),
-    awful.key({ modkey, "Shift" },   "s",     function () awful.util.spawn("/usr/local/scripts/screenshot.sh") end),
+    awful.key({ },                   "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Screenshots/ 2>/dev/null'") end),
+    awful.key({ modkey },            "Print", function () awful.util.spawn("scrot -e -s 'mv $f ~/Screenshots/ 2>/dev/null'") end),
+
     -- awful.key({ modkey },            "b",     function () awful.util.spawn("/usr/bin/google-chrome") end),
     awful.key({ modkey },            "b",     function () awful.util.spawn("/opt/firefox/firefox") end),
     awful.key({ modkey },            "i",     function () awful.util.spawn("/usr/bin/google-chrome --incognito") end),
