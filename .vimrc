@@ -76,3 +76,10 @@ nnoremap <leader><space> :nohlsearch<CR>
 "nnoremap <leader>u :GundoToggle<CR>
 set paste
 
+" swap columns
+nnoremap <space>sc :%s/\v^(\S+)\s+(\S+).*$/\2 \1/<CR>
+
+" raven dance
+nnoremap <space>rd :%s/^\([-+!]\)/ \1/<CR>
+" un-raven dance
+nnoremap <space>RD :%s/^ \([-+!]\)/\1/<CR>

@@ -20,7 +20,7 @@ alias k="kpcli --kdb=/mnts/SysEng/SysEngMaster.kdbx —readonly"
 alias zt="host -l $@.oanda.com"
 alias bast="ssh oneubauer-bastion.engi.oanda.com"
 # use function to allow for arguments
-alias zt='function _zt(){ if ! [ "$1" == "all" ] 
+alias zt='function _zt(){ if ! [ "x$1" == "x" ] 
                           then
                              host -l $1.oanda.com
                           else
