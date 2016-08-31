@@ -20,7 +20,7 @@ set shiftwidth=4
 set autoindent    " always set autoindenting on
 "set copyindent    " copy the previous indentation on autoindenting
 
-"set expandtab
+set expandtab
 
 set showcmd
 set cursorline
