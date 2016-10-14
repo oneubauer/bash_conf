@@ -22,9 +22,9 @@ alias bast="ssh oneubauer-bastion.engi.oanda.com"
 # use function to allow for arguments
 alias zt='function _zt(){ if ! [ "x$1" == "x" ] 
                           then
-                             host -l $1.oanda.com
+                             host -l $1.oanda.com 10.33.4.11
                           else
-                             for d in ny4 engi ri stage perf t-tr2 g-tr2 stg ng 
-                             do host -l $d.oanda.com
+                             for d in dev ny4 engi ri stage perf t-tr2 g-tr2 stg ng 
+                             do host -l $d.oanda.com 10.33.4.11
                              done
                           fi; }; _zt'
