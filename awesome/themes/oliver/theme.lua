@@ -16,17 +16,19 @@ end
 sharedicons   = shared .. "/icons"
 sharedthemes  = shared .. "/themes"
 themes        = config .. "/themes"
-themename     = "/wombat"
+themename     = "/oliver"
 if not awful.util.file_readable(themes .. themename .. "/theme.lua") then
        themes = sharedthemes
 end
 themedir      = themes .. themename
 
-wallpaper1    = themedir .. "/background.jpg"
+wallpaper1    = "/home/olivern/.config/awesome/themes/oliver/glass-condensation.jpg" 
 wallpaper2    = themedir .. "/background.png"
 wallpaper3    = sharedthemes .. "/zenburn/zenburn-background.png"
 wallpaper4    = sharedthemes .. "/default/background.png"
 wpscript      = home .. "/.wallpaper"
+
+
 
 if awful.util.file_readable(wallpaper1) then
 	theme.wallpaper = wallpaper1
