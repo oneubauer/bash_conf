@@ -1,26 +1,46 @@
-" Pathogen
-filetype off " Pathogen needs to run before plugin indent on
-execute pathogen#infect()
-execute pathogen#helptags()
-" generate helptags for everything in 'runtimepath'
-if has ("autocmd")
-	filetype plugin indent on
-endif
+call plug#begin('~/.vim/plugged')
+
+" Plugins go here
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tmhedberg/SimpylFold'
+Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/syntastic'
+Plug 'jnurmine/Zenburn'
+Plug 'kien/ctrlp.vim'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+augroup load_us_ycm
+  autocmd!
+  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+                     \| autocmd! load_us_ycm
+augroup END
+
+call plug#end()
 
 set number
 syntax enable
+let python_highlight_all=1
+syntax on
 
 set relativenumber
 
 set t_Co=256
 colorscheme twilight256
+"colorscheme zenburn
+
+let g:Powerline_symbols = 'unicode'
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set autoindent    " always set autoindenting on
-"set copyindent    " copy the previous indentation on autoindenting
-
 set expandtab
+"set copyindent    " copy the previous indentation on autoindenting
+set encoding=utf-8
+
+" mark bad whitespace in python files:
+highlight BadWhitespace ctermbg=red
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set showcmd
 set cursorline
@@ -68,13 +88,21 @@ set incsearch
 set ignorecase smartcase
 set hlsearch
 set hidden
+set paste
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" REMAPS:
+" Enable folding with the spacebar
+nnoremap <space> za
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
 " toggle gundo
 "nnoremap <leader>u :GundoToggle<CR>
-set paste
 
 " swap columns
 nnoremap <space>sc :%s/\v^(\S+)\s+(\S+).*$/\2 \1/<CR>

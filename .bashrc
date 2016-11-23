@@ -2,6 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# UTF-8
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_us.UTF-8
+export LC_CTYPE=en_US.UTF-8
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

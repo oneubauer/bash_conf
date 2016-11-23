@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/etc/NetworkManager/system-connections'
-let g:netrw_dirhist_2='/home/oneubauer/Sync/work/SENG-2285'
-let g:netrw_dirhist_3='/home/oneubauer/Sync/work/ansible/galaxy/ansible-role-named/handlers'
-let g:netrw_dirhist_4='/home/oneubauer/Sync/work/ansible/idrac_shit'
-let g:netrw_dirhist_5='/home/oneubauer/Sync/work/ansible/galaxy/host_vars'
-let g:netrw_dirhist_6='/home/oneubauer/Sync/work/ansible/galaxy/group_vars'
