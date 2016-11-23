@@ -9,18 +9,17 @@ Plug 'jnurmine/Zenburn'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-augroup load_us_ycm
-  autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
-                     \| autocmd! load_us_ycm
-augroup END
+"augroup load_us_ycm
+" autocmd!
+"  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+"                     \| autocmd! load_us_ycm
+"augroup END
 
 call plug#end()
 
 set number
 syntax enable
 let python_highlight_all=1
-syntax on
 
 set relativenumber
 
@@ -28,7 +27,14 @@ set t_Co=256
 colorscheme twilight256
 "colorscheme zenburn
 
+"YCM options
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" filetypes to turn on youcompleteme
+let g:ycm_filetype_whitelist = { 'python': 1 }
+
 let g:Powerline_symbols = 'unicode'
+
 
 set tabstop=4
 set softtabstop=4
@@ -105,9 +111,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 "nnoremap <leader>u :GundoToggle<CR>
 
 " swap columns
-nnoremap <space>sc :%s/\v^(\S+)\s+(\S+).*$/\2 \1/<CR>
+nnoremap <leader>sc :%s/\v^(\S+)\s+(\S+).*$/\2 \1/<CR>
 
 " raven dance
-nnoremap <space>rd :%s/^\([-+!]\)/ \1/<CR>
+nnoremap <leader>rd :%s/^\([-+!]\)/ \1/<CR>
 " un-raven dance
-nnoremap <space>RD :%s/^ \([-+!]\)/\1/<CR>
+nnoremap <leader>RD :%s/^ \([-+!]\)/\1/<CR>
