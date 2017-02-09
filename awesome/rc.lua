@@ -11,6 +11,8 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 
+local lain = require("lain")
+
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -111,6 +113,43 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
 
+
+-- battery widget                                           
+batterywidget = wibox.widget.textbox()
+
+-- alsa volume widget                             
+volumewidget = lain.widget.alsa()
+
+-- weather
+myweather = lain.widget.weather({                                  
+    APPID = "77489eefb4f667f17a9f3272a8d73ebf",
+    city_id = 6167865, -- placeholder
+    settings = function()
+        units = math.floor(weather_now["main"]["temp"])
+        widget:set_text(" " .. units .. " ")
+    end
+})
+
+
+function GetBatteryState()
+  local command = "acpi -b | cut -d ':' -f 2,3 | sed 's/\\,//g' | sed s/^\\ //g| sed s/Discharging/🔋/g | sed s/Charging/⚡/g "
+  local fh = assert(io.popen(command, "r"))
+  local text = fh:read("*l")
+  if not text then text = " " end
+  fh:close()
+  return text
+end
+
+-- populate the widget periodically (60 secs)
+batterywidget_timer = timer({timeout = 60})
+  batterywidget_timer:connect_signal("timeout", function()
+    batterywidget:set_text(GetBatteryState())
+  end)
+batterywidget_timer:start()
+-- set it on start 
+batterywidget:set_text(GetBatteryState())
+
+
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
@@ -121,6 +160,9 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+
+lain.widget.calendar({ attach_to = { mytextclock }  })
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
