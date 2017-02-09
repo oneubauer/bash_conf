@@ -564,9 +564,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- autostart stuff:
-awful.util.spawn_with_shell("runonce.sh parcellite")            
+awful.util.spawn_with_shell("/usr/local/scripts/runonce.sh parcellite")            
 awful.util.spawn_with_shell("dropbox start")
-awful.util.spawn_with_shell("runonce.sh nm-applet")
+awful.util.spawn_with_shell("/usr/local/scripts/runonce.sh nm-applet")
 awful.util.spawn_with_shell("xscreensaver")
-awful.util.spawn_with_shell("runonce.sh xfce4-power-manager")
+awful.util.spawn_with_shell("/usr/local/scripts/runonce.sh xfce4-power-manager")
 
