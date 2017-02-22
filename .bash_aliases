@@ -28,3 +28,7 @@ alias zt='function _zt(){ if ! [ "x$1" == "x" ]
                              do host -l $d.oanda.com 10.1.22.11 
                              done
                           fi; }; _zt'
+
+alias gcalp='gcalcli --configFolder /home/oneubauer/.gcal_o.neubauer@gmail.com/'
+alias gcalw='gcalcli --configFolder /home/oneubauer/.gcal_oneubauer@oanda.com/'
+
