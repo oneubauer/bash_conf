@@ -1,8 +1,16 @@
 ! include a file with a colour palette:
-#include ".Xresources.d/rxvt.palette.tango"
+!#include ".Xresources.d/rxvt.palette.tango"
 !#include ".Xresources.d/rxvt.palette.standard"
 !#include ".Xresources.d/rxvt.palette.twilight"
+!#include ".Xresources.d/rxvt.palette.oliver1"
+#include ".Xresources.d/rxvt.palette.solarized"
 
+
+URxvt*perl-ext: resize-font,matcher 
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Bold fg6
 
 !font display prettification
 Xft.autohint: 0
@@ -12,9 +20,7 @@ Xft.hinting: 1
 !Xft.antialias: 1
 Xft.rgba: rgb
 
-
 URxvt*cursorBlink: true 
-
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -28,23 +34,23 @@ URxvt*scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
-!black background
-URxvt*background:  Black
-
-!foreground
-URxvt*foreground:  Grey 
-
 !disable the scrollbar
 URxvt*scrollBar:  false
 
 !font
-URxvt.font: xft:Hack-Regular:size=12:antialias=false
+URxvt.font: xft:Hack-Regular:size=9:antialias=false
 
 !spacing in fonts
 URxvt.letterSpace: -1
 
+!spacing in lines
+URxvt*lineSpace: -1
+
 ! fade a bit when not focused:
 URxvt*fading: 50
+
+! scroll buffer
+URxvt*saveLines: 20000 
 
 ! This was all created by running:
 ! man -Pcat urxvt | sed -n '/th: b/,/^B/p'|sed '$d'|sed '/^ \{7\}[a-z]/s/^ */^/g' | sed -e :a -e 'N;s/\n/@@/g;ta;P;D' | sed 's,\^\([^@]\+\)@*[\t ]*\([^\^]\+\),! \2\n! URxvt*\1\n\n,g' | sed 's,@@\(  \+\),\n\1,g' | sed 's,@*$,,g' | sed '/^[^!]/d' | tr -d "'\`"

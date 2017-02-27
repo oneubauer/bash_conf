@@ -24,7 +24,8 @@ let python_highlight_all=1
 set relativenumber
 
 set t_Co=256
-colorscheme twilight256
+"colorscheme twilight256
+colorscheme solarized 
 "colorscheme zenburn
 
 "YCM options

@@ -1,3 +1,10 @@
+!black background
+URxvt*background:  Black
+
+!foreground
+URxvt*foreground:  Grey
+
+
 URxvt.color0:  #2E3436
 URxvt.color1:  #a40000
 URxvt.color2:  #4E9A06
