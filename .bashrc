@@ -115,3 +115,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# source functions
+if [ -f ~/.bash_function ]; then
+    . ~/.bash_function
+fi
+
