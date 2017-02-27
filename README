@@ -2,14 +2,21 @@
 
 git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
 
-
 # also, to make powerline work properly, likely will need to 
 apt install fonts-powerline
 
 and setup proper utf8 env:
 dpkg-reconfigure locales
-besure to chose en_us-utf8
+be sure to chose en_us-utf8
 
 And change /etc/fonts/conf.d/70-no-bitmaps.conf 
 symlink
 to /etc/fonts/conf.d/70-yes-bitmaps.conf
+
+
+Colour scheme builder that's pretty good:
+
+https://terminal.sexy/
+
+Reloading Xresources:
+ xrdb ~/.Xresources
