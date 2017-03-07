@@ -72,6 +72,7 @@ fi
 export TERM='xterm-256color'
 
 
+#. ~/.bash_ps1_1
 . ~/.bash_ps1
 . /home/olivern/.bash-git-prompt/gitprompt.sh
 
@@ -120,3 +121,11 @@ if [ -f ~/.bash_function ]; then
     . ~/.bash_function
 fi
 
+# hit up .Xrresources, but not before pre-processing variables are set
+
+case $(hostname) in
+  dsfldslkf )
+      echo 1 2 3 ;;
+     oliver-pc )
+      echo not ;;
+esac
