@@ -8,7 +8,8 @@ prompt_command () {
     local CYAN="\[\033[0;36m\]"
     local BCYAN="\[\033[1;36m\]"
     local BLUE="\[\033[0;34m\]"
-    local LBLUE="\[\033[1;34m\]"
+    #note LBLUE has been changed to use the 256 colour equiv directly
+    local LBLUE="\[\033[38;5;111;1m\]"
     local GRAY="\[\033[0;37m\]"
     local DKGRAY="\[\033[1;30m\]"
     local WHITE="\[\033[1;37m\]"

@@ -606,6 +606,7 @@ client.connect_signal("mouse::enter", function(c)
     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
         and awful.client.focus.filter(c) then
         client.focus = c
+		c:raise()
     end
 end)
 
@@ -619,4 +620,5 @@ awful.util.spawn_with_shell("dropbox start")
 awful.util.spawn_with_shell("/usr/local/scripts/runonce.sh nm-applet")
 awful.util.spawn_with_shell("xscreensaver")
 awful.util.spawn_with_shell("/usr/local/scripts/runonce.sh xfce4-power-manager")
+awful.util.spawn_with_shell("/usr/bin/urxvtd -q -o -f")
 
