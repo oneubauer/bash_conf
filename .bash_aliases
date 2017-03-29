@@ -3,7 +3,7 @@ alias a='. ~/.bash_aliases'
 alias ls='ls --color=auto'
 alias passwords='gpg -d /home/olivern/.private/PASSWDS | less'
 
-alias cssh='cssh -o "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" -g'
+alias cssh='cssh -o "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" -g --font 7x14'
 alias ksp64='/home/olivern/.steam/steamapps/common/Kerbal\ Space\ Program/KSP.x86_64'
 alias addsshkey='echo ~/.ssh/*rsa | xargs -n1 ssh-add'
 
@@ -16,7 +16,11 @@ alias restart_awesome='echo "awesome.restart()" | awesome-client'
 alias gw="gcalcli --configFolder=~/Sync/calendar/.gcalcli_work"
 alias gp="gcalcli --configFolder=~/Sync/calendar/.gcalcli_personal"
 #oanda specific stuff:
-alias k="kpcli --kdb=/mnts/SysEng/SysEngMaster.kdbx —readonly"
+alias k='function kpcli_func() { 
+      [[ -d "/mnts/SysEng" ]] || mount SysEng ;  
+      [[ -f "/mnts/SysEng/SysEngMaster.kdbx" ]] && rsync /mnts/SysEng/SysEngMaster.kdbx $HOME/var/SysEngMaster.kdbx;
+      kpcli --kdb=$HOME/var/SysEngMaster.kdbx —readonly
+      }; kpcli_func '
 alias zt="host -l $@.oanda.com"
 alias bast="ssh oneubauer-bastion.engi.oanda.com"
 # use function to allow for arguments
