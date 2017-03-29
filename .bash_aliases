@@ -17,7 +17,7 @@ alias gw="gcalcli --configFolder=~/Sync/calendar/.gcalcli_work"
 alias gp="gcalcli --configFolder=~/Sync/calendar/.gcalcli_personal"
 #oanda specific stuff:
 alias k='function kpcli_func() { 
-      [[ -d "/mnts/SysEng" ]] || mount SysEng ;  
+      mountpoint -q /mnts/SysEng || sudo mount /mnts/SysEng ;  
       [[ -f "/mnts/SysEng/SysEngMaster.kdbx" ]] && rsync /mnts/SysEng/SysEngMaster.kdbx $HOME/var/SysEngMaster.kdbx;
       kpcli --kdb=$HOME/var/SysEngMaster.kdbx —readonly
       }; kpcli_func '
