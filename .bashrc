@@ -121,6 +121,12 @@ if [ -f ~/.bash_function ]; then
     . ~/.bash_function
 fi
 
+# source autoenv
+# https://github.com/kennethreitz/autoenv.git
+if [ -f ~/bin/autoenv_activate.sh ] ; then
+    source ~/bin/autoenv_activate.sh 
+fi
+
 # hit up .Xrresources, but not before pre-processing variables are set
 
 case $(hostname) in
@@ -129,3 +135,6 @@ case $(hostname) in
      oliver-pc )
       echo not ;;
 esac
+
+# added by Anaconda3 4.3.1 installer
+export PATH="/home/oneubauer/anaconda3/bin:$PATH"

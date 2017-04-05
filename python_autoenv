@@ -1,0 +1,7 @@
+
+short_pwd=$(basename $(pwd))
+
+if [ -z "$CONDA_DEFAULT_ENV" ] ||  [ "$CONDA_DEFAULT_ENV" != "$short_pwd" ] ; then
+ source activate $short_pwd 
+fi
+
