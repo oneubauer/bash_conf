@@ -74,7 +74,7 @@ export TERM='xterm-256color'
 
 #. ~/.bash_ps1_1
 . ~/.bash_ps1
-. /home/olivern/.bash-git-prompt/gitprompt.sh
+. ~/.bash-git-prompt/gitprompt.sh
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
