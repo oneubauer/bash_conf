@@ -28,8 +28,6 @@ wallpaper3    = sharedthemes .. "/zenburn/zenburn-background.png"
 wallpaper4    = sharedthemes .. "/default/background.png"
 wpscript      = home .. "/.wallpaper"
 
-
-
 if awful.util.file_readable(wallpaper1) then
 	theme.wallpaper = wallpaper1
 elseif awful.util.file_readable(wallpaper2) then

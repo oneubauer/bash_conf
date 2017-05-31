@@ -371,7 +371,8 @@ globalkeys = awful.util.table.join(
 	awful.key({ },                   "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Screenshots/ 2>/dev/null'") end),
 	awful.key({ modkey },            "Print", function () awful.util.spawn("scrot -u -e 'mv $f ~/Screenshots/ 2>/dev/null'") end),
 	  -- awful.key({ modkey },            "b",     function () awful.util.spawn("/usr/bin/google-chrome") end),
-	awful.key({ modkey },            "b",     function () awful.util.spawn("/opt/firefox/firefox") end),
+	-- awful.key({ modkey },            "b",     function () awful.util.spawn("/opt/firefox/firefox") end),
+	awful.key({ modkey },            "b",     function () awful.util.spawn("/etc/alternatives/x-www-browser") end),
 	awful.key({ modkey },            "i",     function () awful.util.spawn("/usr/bin/google-chrome --incognito") end),
 	  -- volume (pageup and pagedown)
 	awful.key({ modkey },            "Prior", function () os.execute(string.format("amixer set %s 5%%+", volumewidget.channel))

@@ -17,7 +17,8 @@
 
 ! Dark
 
-#define S_base03        #031419
+! #define S_base03        #031419
+#define S_base03        #010a0d 
 #define S_base02        #031419 
 #define S_base01        #586e75
 #define S_base00        #657b83
@@ -46,7 +47,7 @@
 
 *background:              S_base03
 *foreground:              S_base0
-*fading:                  50
+*fading:                  40
 *fadeColor:               S_base03
 *cursorColor:             S_base1
 *pointerColorBackground:  S_base01

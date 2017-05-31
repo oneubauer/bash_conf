@@ -49,8 +49,8 @@ esac
 
 
 # some ssh/scp completions
-complete -W "$(echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts | sort -u))" ssh
-complete -W "$(ls && echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts | sort -u))" scp
+complete -W "$(echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts ;  cat /work/oanda_hosts | sort -u))" ssh
+complete -W "$(ls && echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts;  cat /work/oanda_hosts | sort -u))" scp
 
 
 # uncomment for a colored prompt, if the terminal has the capability; turned

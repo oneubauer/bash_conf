@@ -36,3 +36,10 @@ alias zt='function _zt(){ if ! [ "x$1" == "x" ]
 alias gcalp='gcalcli --configFolder /home/oneubauer/.gcal_o.neubauer@gmail.com/'
 alias gcalw='gcalcli --configFolder /home/oneubauer/.gcal_oneubauer@oanda.com/'
 
+alias gethyp='function  gethyp_func {
+              grep -R $1 /git/syseng/sys-audit/ | sed s/\\/git\\/syseng\\/sys-audit\\/[a-z_]*\\///g 
+              } ; gethyp_func '
+
+alias getnet='function getnet_func {
+              grep -Ri $1 /git/netconfigs/ |  sed s/\\/git.*configs\\///g 
+              } ; getnet_func '

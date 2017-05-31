@@ -3,6 +3,7 @@
 !#include ".Xresources.d/rxvt.palette.standard"
 !#include ".Xresources.d/rxvt.palette.twilight"
 !#include ".Xresources.d/rxvt.palette.oliver1"
+!#include ".Xresources.d/rxvt.palette.solarized_custom"
 #include ".Xresources.d/rxvt.palette.solarized"
 
 
@@ -38,10 +39,10 @@ URxvt.secondaryScroll: 0
 URxvt*scrollBar:  false
 
 !font
-URxvt.font: xft:Hack-Regular:size=9:antialias=false
+URxvt.font: xft:Hack-Regular:size=10:antialias=true
 
 !spacing in fonts
-URxvt.letterSpace: -1
+URxvt.letterSpace:  -1 
 
 !spacing in lines
 URxvt*lineSpace: -1

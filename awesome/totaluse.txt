@@ -1,0 +1,6 @@
+PID 17683 actual memory  usage is :mapped: 2103872K    writeable/private: 924080K    shared: 246176K
+PID 30653 actual memory  usage is :mapped: 1646964K    writeable/private: 560588K    shared: 168616K
+PID 31786 actual memory  usage is :mapped: 2541308K    writeable/private: 1008248K    shared: 629628K
+PID 31788 actual memory  usage is :mapped: 323584K    writeable/private: 4796K    shared: 20976K
+PID 31808 actual memory  usage is :mapped: 516228K    writeable/private: 79256K    shared: 37692K
+PID 31820 actual memory  usage is :mapped: 1161284K    writeable/private: 254016K    shared: 29504K
