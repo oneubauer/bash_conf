@@ -21,7 +21,6 @@ alias k='function kpcli_func() {
       [[ -f "/mnts/SysEng/SysEngMaster.kdbx" ]] && rsync /mnts/SysEng/SysEngMaster.kdbx $HOME/var/SysEngMaster.kdbx;
       kpcli --kdb=$HOME/var/SysEngMaster.kdbx —readonly
       }; kpcli_func '
-alias zt="host -l $@.oanda.com"
 alias bast="ssh oneubauer-bastion.engi.oanda.com"
 # use function to allow for arguments
 alias zt='function _zt(){ if ! [ "x$1" == "x" ] 
@@ -43,3 +42,9 @@ alias gethyp='function  gethyp_func {
 alias getnet='function getnet_func {
               grep -Ri $1 /git/netconfigs/ |  sed s/\\/git.*configs\\///g 
               } ; getnet_func '
+
+alias ossh=' function ossh_func {
+              for i in $* 
+              do
+                /usr/bin/urxvtc  -e ssh $i
+              done } ; ossh_func '
