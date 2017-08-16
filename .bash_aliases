@@ -47,4 +47,4 @@ alias ossh=' function ossh_func {
               for i in $* 
               do
                 /usr/bin/urxvtc  -e ssh $i
-              done } ; ossh_func '
+              done ; exit ; } ; ossh_func '
