@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=$(echo .bash* .vim*)
+FILES=$(echo .gitignore .bash* .vim*)
 
 for file in $FILES 
  do 
