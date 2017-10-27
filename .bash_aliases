@@ -48,3 +48,12 @@ alias ossh=' function ossh_func {
               do
                 /usr/bin/urxvtc  -e ssh $i
               done ; exit ; } ; ossh_func '
+
+alias mplayer='LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfreetype.so.6 /usr/bin/mplayer'
+
+alias prettyjson='python -m json.tool'
+
+alias rdiff='function rdiff_func {
+             diff <(ssh $1 "cat $3") <(ssh $2 "cat $3")
+             }; rdiff_func '
+

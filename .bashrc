@@ -75,7 +75,7 @@ export TERM='xterm-256color'
 #. ~/.bash_ps1_1
 . ~/.bash_ps1
 . ~/.bash-git-prompt/gitprompt.sh
-
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
