@@ -53,7 +53,14 @@ alias mplayer='LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfreetype.so.6 /usr/bin/mp
 
 alias prettyjson='python -m json.tool'
 
+alias rdiffnosort='function rdiffnosort_func {
+             diff <(ssh $1 "grep -v -e ^$ -e ^# $3") <(ssh $2 "grep -v -e ^$ -e ^# $3")
+             }; rdiffnosort_func '
 alias rdiff='function rdiff_func {
-             diff <(ssh $1 "cat $3") <(ssh $2 "cat $3")
+             diff <(ssh $1 "grep -v -e ^$ -e ^# $3 | sort") <(ssh $2 "grep -v -e ^$ -e ^# $3 | sort ")
              }; rdiff_func '
+
+alias rvimdiff='function rvimdiff_func {
+             vimdiff <(ssh $1 "grep -v -e ^# -e ^$ $3 | sort") <(ssh $2 "grep -v -e ^# -e ^$ $3 | sort ")
+             }; rvimdiff_func '
 
