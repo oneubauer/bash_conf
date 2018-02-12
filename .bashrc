@@ -133,7 +133,7 @@ fi
 case $(hostname) in
   dsfldslkf )
       echo 1 2 3 ;;
-     oliver-pc )
+  oliver-pc )
       echo not ;;
 esac
 
@@ -141,3 +141,5 @@ esac
 export PATH="/home/oneubauer/anaconda3/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PASSWORD_STORE_DIR=~/Sync/pass
