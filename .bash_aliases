@@ -21,6 +21,11 @@ alias k='function kpcli_func() {
       [[ -f "/mnts/SysEng/SysEngMaster.kdbx" ]] && rsync /mnts/SysEng/SysEngMaster.kdbx $HOME/var/SysEngMaster.kdbx;
       kpcli --kdb=$HOME/var/SysEngMaster.kdbx —readonly
       }; kpcli_func '
+
+alias ks='function ks_func() {
+      /usr/local/scripts/passmenu.sh --search $1 -l 20
+      }; ks_func '
+
 alias bast="ssh oneubauer-bastion.engi.oanda.com"
 # use function to allow for arguments
 alias zt='function _zt(){ if ! [ "x$1" == "x" ] 
