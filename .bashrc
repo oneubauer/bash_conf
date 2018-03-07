@@ -143,3 +143,7 @@ export PATH="/home/oneubauer/anaconda3/bin:$PATH"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PASSWORD_STORE_DIR=~/Sync/pass
+
+export GOPATH=$HOME/Sync/work/golang
+export GOBIN=$GOPATH/bin
+

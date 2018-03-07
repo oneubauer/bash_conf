@@ -8,6 +8,7 @@ Plug 'scrooloose/syntastic'
 Plug 'jnurmine/Zenburn'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 "augroup load_us_ycm
 " autocmd!
