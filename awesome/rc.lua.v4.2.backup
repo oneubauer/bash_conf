@@ -14,9 +14,6 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- lain plugins
-local lain = require("lain")
-
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
@@ -48,8 +45,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
--- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init("~/.config/awesome/themes/oliver/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -65,19 +61,19 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
---    awful.layout.suit.floating,
+    awful.layout.suit.floating,
     awful.layout.suit.tile,
---    awful.layout.suit.tile.left,
---    awful.layout.suit.tile.bottom,
---    awful.layout.suit.tile.top,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
---    awful.layout.suit.spiral,
---    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.spiral,
+    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
---    awful.layout.suit.magnifier,
---    awful.layout.suit.corner.nw,
+    awful.layout.suit.magnifier,
+    awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -112,43 +108,24 @@ myawesomemenu = {
 local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
 local menu_terminal = { "open terminal", terminal }
 
-  mymainmenu = awful.menu({
+if has_fdo then
+    mymainmenu = freedesktop.menu.build({
+        before = { menu_awesome },
+        after =  { menu_terminal }
+    })
+else
+    mymainmenu = awful.menu({
         items = {
                   menu_awesome,
-                  -- { "Debian", debian.menu.Debian_menu.Debian },
+                  { "Debian", debian.menu.Debian_menu.Debian },
                   menu_terminal,
                 }
     })
+end
+
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
-
--- battery widget                                           
-batterywidget = wibox.widget.textbox()
-
--- alsa volume widget                             
-volumewidget = lain.widget.alsa()
-
-
-function GetBatteryState()
-  local command = "acpi -b | cut -d ':' -f 2,3 | sed 's/\\,//g' | sed s/^\\ //g| sed s/Discharging/🔋/g | sed s/Charging/⚡/g "
-  local fh = assert(io.popen(command, "r"))
-  local text = fh:read("*l")
-  if not text then text = " " end
-  fh:close()
-  return text
-end
-
--- populate the widget periodically (60 secs)
-batterywidget_timer = timer({timeout = 60})
-  batterywidget_timer:connect_signal("timeout", function()
-    batterywidget:set_text(GetBatteryState())
-  end)
-batterywidget_timer:start()
--- set it on start 
-batterywidget:set_text(GetBatteryState())
-
-
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -160,10 +137,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
-
-lain.widget.calendar({ attach_to = { mytextclock }, cal='/usr/bin/ncal -b -h'   }) 
-
-
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -254,18 +227,17 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            -- mylauncher,
+            mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
-            batterywidget, 
             layout = wibox.layout.fixed.horizontal,
-            -- mykeyboardlayout,
+            mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
-            -- s.mylayoutbox,
+            s.mylayoutbox,
         },
     }
 end)
@@ -377,25 +349,7 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
-
-       -- Custom commands
-	awful.key({ modkey },            "a",     function () awful.util.spawn("xscreensaver-command -lock") end),
-	awful.key({ },                   "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Screenshots/ 2>/dev/null'") end),
-	awful.key({ modkey },            "Print", function () awful.util.spawn("scrot -u -e 'mv $f ~/Screenshots/ 2>/dev/null'") end),
-	  -- awful.key({ modkey },            "b",     function () awful.util.spawn("/usr/bin/google-chrome") end),
-	-- awful.key({ modkey },            "b",     function () awful.util.spawn("/opt/firefox/firefox") end),
-	awful.key({ modkey },            "b",     function () awful.util.spawn("/etc/alternatives/x-www-browser") end),
-	awful.key({ modkey },            "i",     function () awful.util.spawn("/usr/bin/google-chrome --incognito  --user-data-dir=~/.config/google-chrome-incognito") end),
-	  -- volume (pageup and pagedown)
-	awful.key({ modkey },            "Prior", function () os.execute(string.format("amixer set %s 5%%+", volumewidget.channel))
-	                                          volumewidget.update()
-											  end),
-  	awful.key({ modkey },            "Next",  function () os.execute(string.format("amixer set %s 5%%-", volumewidget.channel))
-											  volumewidget.update()
-											  end)
-    -- end Custom commands
- 
+              {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -545,7 +499,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = false }
+      }, properties = { titlebars_enabled = true }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -621,13 +575,4 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
--- autostart stuff:
-awful.util.spawn_with_shell("/usr/local/scripts/runonce.sh parcellite")            
-awful.util.spawn_with_shell("dropbox start")
-awful.util.spawn_with_shell("/usr/local/scripts/runonce.sh nm-applet")
-awful.util.spawn_with_shell("xscreensaver")
-awful.util.spawn_with_shell("/usr/local/scripts/runonce.sh xfce4-power-manager")
-awful.util.spawn_with_shell("/usr/bin/urxvtd -q -o -f")
-
 -- }}}
