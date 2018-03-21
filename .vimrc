@@ -6,6 +6,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
 Plug 'jnurmine/Zenburn'
+Plug 'vim-python/python-syntax'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -20,7 +21,7 @@ call plug#end()
 
 set number
 syntax enable
-let python_highlight_all=1
+let g:python_highlight_all=1
 
 set relativenumber
 

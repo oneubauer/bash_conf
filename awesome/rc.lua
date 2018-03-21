@@ -161,7 +161,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
-lain.widget.calendar({ attach_to = { mytextclock }, cal='/usr/bin/ncal -b -h'   }) 
+lain.widget.calendar({ attach_to = { mytextclock }, cal='/usr/local/scripts/cal_color_code.sh'   }) 
 
 
 

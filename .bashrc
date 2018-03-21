@@ -137,8 +137,6 @@ case $(hostname) in
       echo not ;;
 esac
 
-# added by Anaconda3 4.3.1 installer
-export PATH="/home/oneubauer/anaconda3/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
