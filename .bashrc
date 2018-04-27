@@ -49,9 +49,9 @@ esac
 
 
 # some ssh/scp completions
-complete -W "$(echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts ;  cat /work/oanda_hosts | sort -u))" ssh
-complete -W "$(ls $PWD && echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts;  cat /work/oanda_hosts | sort -u))" scp
-complete -W "$(echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts ;  cat /work/oanda_hosts | sort -u))" rdiff
+complete -W "$(echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then cat /work/oanda_hosts | sort -u ; fi ))" ssh
+complete -W "$(ls $PWD && echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts;  if [ -f /work/oanda_hosts ] ; then cat /work/oanda_hosts | sort -u ; fi ))" scp
+complete -W "$(echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then cat /work/oanda_hosts | sort -u ; fi ))" rdiff
 
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -72,10 +72,15 @@ fi
 
 export TERM='xterm-256color'
 
-
-#. ~/.bash_ps1_1
+if [ -f ~/.bash_ps1 ] 
+then
 . ~/.bash_ps1
+fi
+
+if [ -f ~/.bash-git-prompt/gitprompt.sh ] 
+then
 . ~/.bash-git-prompt/gitprompt.sh
+fi 
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -130,13 +135,13 @@ fi
 
 # hit up .Xrresources, but not before pre-processing variables are set
 
+# per host stuff. not used atm
 case $(hostname) in
   dsfldslkf )
       echo 1 2 3 ;;
   oliver-pc )
-      echo not ;;
+      echo ;;
 esac
-
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -145,3 +150,7 @@ export PASSWORD_STORE_DIR=~/Sync/pass
 export GOPATH=$HOME/Sync/work/golang
 export GOBIN=$GOPATH/bin
 
+echo sourcing  /opt/dev_tools/current/bin/setup_devtools
+ source /opt/dev_tools/current/bin/setup_devtools
+echo activating ansible env
+. ~/ansible-python/bin/activate
