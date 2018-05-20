@@ -1,6 +1,14 @@
 alias a='. ~/.bash_aliases'
 
-alias ls='ls --color=auto'
+case $(hostname) in
+  beast )
+      echo skipping ls alias ;;
+  * )
+      alias ls='ls --color=auto' ;;
+esac
+
+
+
 alias passwords='gpg -d /home/olivern/.private/PASSWDS | less'
 
 alias cssh='cssh -o "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" -g --font 7x14'
