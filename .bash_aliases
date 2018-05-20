@@ -2,7 +2,7 @@ alias a='. ~/.bash_aliases'
 
 case $(hostname) in
   beast )
-      echo skipping ls alias ;;
+      true ;;
   * )
       alias ls='ls --color=auto' ;;
 esac

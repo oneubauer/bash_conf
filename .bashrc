@@ -150,7 +150,13 @@ export PASSWORD_STORE_DIR=~/Sync/pass
 export GOPATH=$HOME/Sync/work/golang
 export GOBIN=$GOPATH/bin
 
-echo sourcing  /opt/dev_tools/current/bin/setup_devtools
- source /opt/dev_tools/current/bin/setup_devtools
+if [ -f /opt/dev_tools/current/bin/setup_devtools ]
+then
+  echo sourcing  /opt/dev_tools/current/bin/setup_devtools
+  source /opt/dev_tools/current/bin/setup_devtools
+fi
+if [ -f ~/ansible-python/bin/activate ]
+then
 echo activating ansible env
 . ~/ansible-python/bin/activate
+fi
