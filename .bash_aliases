@@ -23,7 +23,12 @@ alias k='function kpcli_func() {
       }; kpcli_func '
 
 alias ks='function ks_func() {
-      /usr/local/scripts/passmenu.sh --search $1 -l 20 
+      if [ "${2}X" != "X" ]
+      then
+         /usr/local/scripts/passmenu.sh --search $1 -l $2 
+      else
+         /usr/local/scripts/passmenu.sh --search $1 -l  20 
+      fi
       }; ks_func '
 
 alias bast="ssh oneubauer-bastion.engi.oanda.com"
