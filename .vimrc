@@ -19,6 +19,18 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 call plug#end()
 
+" this will keep the go plugin from complaining. it might not work as expected
+" though
+" YouCompleteMe unavailable: requires Vim 7.4.1578+.
+" vim-go requires Vim 7.4.1689 or Neovim, but you're using an older version.
+" Please update your Vim for the best vim-go experience.
+" If you really want to continue you can set this to make the error go away:
+"    let g:go_version_warning = 0
+" Note that some features may error out or behave incorrectly.
+" Please do not report bugs unless you're using Vim 7.4.1689 or newer.
+
+let g:go_version_warning = 0
+
 set number
 syntax enable
 let g:python_highlight_all=1
