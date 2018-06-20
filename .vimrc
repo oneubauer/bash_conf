@@ -1,6 +1,13 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 " Plugins go here
+Plug 'pearofducks/ansible-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'Valloric/YouCompleteMe'
@@ -133,3 +140,7 @@ nnoremap <leader>sc :%s/\v^(\S+)\s+(\S+).*$/\2 \1/<CR>
 nnoremap <leader>rd :%s/^\([-+!]\)/ \1/<CR>
 " un-raven dance
 nnoremap <leader>RD :%s/^ \([-+!]\)/\1/<CR>
+
+" enable jinja syntax
+autocmd BufNewFile,BufRead *.j2 set syntax=jinja
+

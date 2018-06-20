@@ -82,3 +82,4 @@ alias rvimdiff='function rvimdiff_func {
              vimdiff <(ssh $1 "grep -v -e ^# -e ^$ $3 | sort") <(ssh $2 "grep -v -e ^# -e ^$ $3 | sort ")
              }; rvimdiff_func '
 
+alias vi='vim'
