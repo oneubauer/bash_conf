@@ -6,6 +6,9 @@
 !#include ".Xresources.d/rxvt.palette.solarized_custom"
 #include ".Xresources.d/rxvt.palette.solarized"
 
+! transparency
+URxvt.transparent:   true
+URxvt.shading:        10 
 
 URxvt*perl-ext: resize-font,matcher 
 

@@ -31,7 +31,12 @@ alias k='function kpcli_func() {
       }; kpcli_func '
 
 alias ks='function ks_func() {
-      /usr/local/scripts/passmenu.sh --search $1 -l 20 
+      if [ "${2}X" != "X" ]
+      then
+         /usr/local/scripts/passmenu.sh --search $1 -l $2 
+      else
+         /usr/local/scripts/passmenu.sh --search $1 -l  20 
+      fi
       }; ks_func '
 
 alias bast="ssh oneubauer-bastion.engi.oanda.com"
@@ -77,9 +82,9 @@ alias rvimdiff='function rvimdiff_func {
              vimdiff <(ssh $1 "grep -v -e ^# -e ^$ $3 | sort") <(ssh $2 "grep -v -e ^# -e ^$ $3 | sort ")
              }; rvimdiff_func '
 
-
 alias did="vim  +'normal Go' +'r!date' +'normal Go' " 
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 # add support for ctrl+o to open selected file in VS Code
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+alias vi='vim'
