@@ -1,0 +1,2 @@
+#include "/usr/share/rofi/themes//solarized_alternate.theme"
+rofi.font:          liberation 14 

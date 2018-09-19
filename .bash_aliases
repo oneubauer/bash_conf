@@ -77,3 +77,9 @@ alias rvimdiff='function rvimdiff_func {
              vimdiff <(ssh $1 "grep -v -e ^# -e ^$ $3 | sort") <(ssh $2 "grep -v -e ^# -e ^$ $3 | sort ")
              }; rvimdiff_func '
 
+
+alias did="vim  +'normal Go' +'r!date' +'normal Go' " 
+
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+# add support for ctrl+o to open selected file in VS Code
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
