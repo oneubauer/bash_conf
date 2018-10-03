@@ -24,7 +24,7 @@ prompt_command () {
     export GIT_PROMPT_LEADING_SPACE=0
    
   #  export GIT_PROMPT_START_USER=$(printf "${WHITE}%*s\r%s\n" "$(tput cols)" "${TIME}" "_LAST_COMMAND_INDICATOR_ ${LBLUE} \u@\h:\w\n")
-    export GIT_PROMPT_START_USER=$(echo "_LAST_COMMAND_INDICATOR_ ${LBLUE}\u@\h:\w\n")
+    export GIT_PROMPT_START_USER=$(echo "_LAST_COMMAND_INDICATOR_ ${LBLUE}\u@$(hostname -s):\w\n")
     export GIT_PROMPT_END_USER="${DEFAULT}\$ "
 
 #    export GIT_PROMPT_START_USER=START_USER

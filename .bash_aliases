@@ -50,6 +50,8 @@ alias zt='function _zt(){ if ! [ "x$1" == "x" ]
                              done
                           fi; }; _zt'
 
+alias ztc='function _zt(){ host -l oandacorp.com 10.1.22.11 }; _ztc'
+
 alias gcalp='gcalcli --configFolder /home/oneubauer/.gcal_o.neubauer@gmail.com/'
 alias gcalw='gcalcli --configFolder /home/oneubauer/.gcal_oneubauer@oanda.com/'
 

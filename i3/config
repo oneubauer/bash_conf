@@ -32,6 +32,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt 
 
+# start a terminal grid
+bindsym $mod+Shift+Return exec /usr/local/scripts/gridstart.sh
+
+
 # kill focused window
 bindsym $mod+Shift+c kill
 
@@ -39,6 +43,7 @@ bindsym $mod+Shift+c kill
 #bindsym $mod+r exec dmenu_run
 # trying alternative:
 bindsym $mod+r exec rofi -show run 
+bindsym $mod+period exec rofi -show run 
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications

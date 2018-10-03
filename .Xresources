@@ -56,6 +56,10 @@ URxvt*fading: 50
 ! scroll buffer
 URxvt*saveLines: 20000 
 
+! resize font with arrow keys
+URxvt.keysym.C-Down:  resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
+
 ! allow cssh to work properly
 !*.VT100.allowSendEvents:true
 

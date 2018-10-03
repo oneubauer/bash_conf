@@ -48,11 +48,10 @@ case "$TERM" in
 esac
 
 
-# some ssh/scp completions
-complete -W "$(echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then cat /work/oanda_hosts | sort -u ; fi ))" ssh
-complete -W "$(ls $PWD && echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts;  if [ -f /work/oanda_hosts ] ; then cat /work/oanda_hosts | sort -u ; fi ))" scp
-complete -W "$(echo $(sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then cat /work/oanda_hosts | sort -u ; fi ))" rdiff
 
+
+# fix the escaping of tildes etc when tab-autocompleting
+shopt -s direxpand
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -144,6 +143,12 @@ case $(hostname) in
 esac
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# some ssh/scp completions (after fzf stuff to overide some of it)
+complete -W "$(echo $( sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then grep address /work/oanda_hosts | sed s/has\ address//g   | awk 'BEGIN{RS="  "} 1' | sort -u ; fi  ))" ssh
+complete -W "$(ls -a $PWD && echo $( sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then grep address /work/oanda_hosts | sed s/has\ address//g   | awk 'BEGIN{RS="  "} 1' | sort -u ; fi  ))" scp
+complete -W "$(echo $( sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then grep address /work/oanda_hosts | sed s/has\ address//g   | awk 'BEGIN{RS="  "} 1' | sort -u ; fi  ))" rdiff 
+
 
 export PASSWORD_STORE_DIR=~/Sync/pass
 
