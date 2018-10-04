@@ -79,7 +79,15 @@ fi
 if [ -f ~/.bash-git-prompt/gitprompt.sh ] 
 then
 . ~/.bash-git-prompt/gitprompt.sh
+elif [ -f ~/Sync/git/bash-git-prompt/gitprompt.sh ]
+then
+. ~/Sync/git/bash-git-prompt/gitprompt.sh
+elif [ -f ~/git/bash-git-prompt/gitprompt.sh ]
+then
+. ~/git/bash-git-prompt/gitprompt.sh
 fi 
+
+
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
