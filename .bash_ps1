@@ -26,13 +26,15 @@ prompt_command () {
    
   #  export GIT_PROMPT_START_USER=$(printf "${WHITE}%*s\r%s\n" "$(tput cols)" "${TIME}" "_LAST_COMMAND_INDICATOR_ ${LBLUE} \u@\h:\w\n")
     
+     #export GIT_PROMPT_START_USER=$(echo "_LAST_COMMAND_INDICATOR_ ${RED}\u@$(hostname -s):\w\n")
+   
     if [ "x$OLIVERHOST" == "x" ]
     then
      # non local colour
-     export GIT_PROMPT_START_USER=$(echo "_LAST_COMMAND_INDICATOR_ ${RED}\u@$(hostname -s):\w\n")
+     export GIT_PROMPT_START_USER=$(echo "${RED}\u@$(hostname -s):\w\n")
     else
      #regular prompt
-     export GIT_PROMPT_START_USER=$(echo "_LAST_COMMAND_INDICATOR_ ${LBLUE}\u@$(hostname -s):\w\n")
+     export GIT_PROMPT_START_USER=$(echo "${LBLUE}\u@$(hostname -s):\w\n")
     fi 
     export GIT_PROMPT_END_USER="${DEFAULT}\$ "
 
