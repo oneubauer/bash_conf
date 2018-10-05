@@ -4,6 +4,25 @@
 
 # UTF-8
 
+# if this is solaris, don't even bother
+if [[ $(uname -a | grep Sun) ]]
+then
+   export TERM=vt100
+   return 
+fi
+
+#let's find out what we are running on so we can selectively set stuff
+if [[ $(echo $HOSTNAME | grep oanda)  ]]
+then
+   export WORKHOST=1
+fi
+
+if [[ $(echo $HOSTNAME | grep -e oneubauer -e liet)  ]]
+then
+   export OLIVERHOST=1
+fi
+
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_us.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -169,8 +188,7 @@ then
   source /opt/dev_tools/current/bin/setup_devtools
 fi
 
-ANSIBLEHOSTS="oneubauer-bastion"
-
+# let's only run this if we are on a specific host
 if [[ ( -f ~/ansible-python/bin/activate ) && ( "$(hostname)" =~ "oneubauer-bastion" ) ]] 
 then
 echo activating ansible env

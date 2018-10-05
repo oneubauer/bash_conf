@@ -2,7 +2,8 @@ prompt_command () {
 # __git_ps1 cannot be trusted
 #    echo $LAST_COMMAND_INDICATOR 
 #    echo $GIT_PROMPT_LAST_COMMAND_STATE
-    
+
+            
     local TIME=$(date "+%Y-%m-%d %H:%M:%S %Z")
     local GREEN="\[\033[0;32m\]"
     local CYAN="\[\033[0;36m\]"
@@ -24,7 +25,15 @@ prompt_command () {
     export GIT_PROMPT_LEADING_SPACE=0
    
   #  export GIT_PROMPT_START_USER=$(printf "${WHITE}%*s\r%s\n" "$(tput cols)" "${TIME}" "_LAST_COMMAND_INDICATOR_ ${LBLUE} \u@\h:\w\n")
-    export GIT_PROMPT_START_USER=$(echo "_LAST_COMMAND_INDICATOR_ ${LBLUE}\u@$(hostname -s):\w\n")
+    
+    if [ "x$OLIVERHOST" == "x" ]
+    then
+     # non local colour
+     export GIT_PROMPT_START_USER=$(echo "_LAST_COMMAND_INDICATOR_ ${RED}\u@$(hostname -s):\w\n")
+    else
+     #regular prompt
+     export GIT_PROMPT_START_USER=$(echo "_LAST_COMMAND_INDICATOR_ ${LBLUE}\u@$(hostname -s):\w\n")
+    fi 
     export GIT_PROMPT_END_USER="${DEFAULT}\$ "
 
 #    export GIT_PROMPT_START_USER=START_USER
