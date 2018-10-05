@@ -168,7 +168,10 @@ then
   echo sourcing  /opt/dev_tools/current/bin/setup_devtools
   source /opt/dev_tools/current/bin/setup_devtools
 fi
-if [ -f ~/ansible-python/bin/activate ]
+
+ANSIBLEHOSTS="oneubauer-bastion"
+
+if [[ ( -f ~/ansible-python/bin/activate ) && ( "$(hostname)" =~ "oneubauer-bastion" ) ]] 
 then
 echo activating ansible env
 . ~/ansible-python/bin/activate
