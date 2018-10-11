@@ -1,2 +1,4 @@
+rofi.font:          liberation 14
+rofi.width:			20
+rofi.lines:   		40	
 #include "/usr/share/rofi/themes//solarized_alternate.theme"
-rofi.font:          liberation 14 

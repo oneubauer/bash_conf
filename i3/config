@@ -189,10 +189,19 @@ bindsym $mod+Prior exec  amixer set Master 5%+
 bindsym $mod+Next exec  amixer set Master 5%-
 bindsym $mod+Print exec  scrot -u -e 'mv $f ~/Screenshots/ 2>/dev/null' 
 
+# renaming workspaces
+#bindsym $mod+p exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+
+# rofi-pass
+bindsym $mod+p exec ~/Sync/git/rofi-pass/rofi-pass 
+# rofi-pass
+bindsym Ctrl+q exec rofi -modi "clipboard:/usr/local/scripts/rofi_modi_clipster.sh" --kb-row-select -show clipboard 
+
 
 for_window [title="CSSH"] floating enable
  
-exec --no-startup-id /usr/local/scripts/runonce.sh parcellite
+#exec --no-startup-id /usr/local/scripts/runonce.sh parcellite
+exec --no-startup-id ~/Sync/bin/clipster -d -f ~/Sync/git/bash_conf/clipster.ini
 exec --no-startup-id xscreensaver -nosplash  &
 exec --no-startup-id dropbox start
 exec --no-startup-id /usr/local/scripts/runonce.sh nm-applet
