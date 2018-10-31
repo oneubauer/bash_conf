@@ -12,7 +12,7 @@ for file in $DOTFILES
 # config dir
 CONFIGFILES=$(echo rofi* i3*)
 
-for file in $DOTFILES 
+for file in $CONFIGFILES 
  do 
    mv -f $HOME/.config/$file $HOME/.config/${file}.bak 2>/dev/null
    ln -s $PWD/$file $HOME/.config/$file

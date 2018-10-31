@@ -17,7 +17,7 @@ then
    export WORKHOST=1
 fi
 
-if [[ $(echo $HOSTNAME | grep -e oneubauer -e liet)  ||  $(echo $USER | grep -e olivern) ]]
+if [[ $(echo $HOSTNAME | grep -e oneubauer -e liet -e olix260)  ||  $(echo $USER | grep -e olivern) ]]
 then
    export OLIVERHOST=1
 fi

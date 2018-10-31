@@ -181,7 +181,7 @@ bindsym $mod+a exec xscreensaver-command -lock
 
 
 # window handling
-bindsym $mod+Tab exec  /usr/local/scripts/i3/quickswitch.py 
+bindsym $mod+Tab exec  rofi -show window 
 bindsym $mod+n exec  /usr/local/scripts/i3/quickswitch.py -e
 bindsym $mod+Shift+n exec  /usr/local/scripts/i3/quickswitch.py -e -j -f
 bindsym $mod+Shift+d exec  /usr/local/scripts/i3/quickswitch.py --degap 
@@ -194,9 +194,10 @@ bindsym $mod+Print exec  scrot -u -e 'mv $f ~/Screenshots/ 2>/dev/null'
 
 # rofi-pass
 bindsym $mod+p exec ~/Sync/git/rofi-pass/rofi-pass 
-# rofi-pass
+# rofi for clipboard
 bindsym Ctrl+q exec rofi -modi "clipboard:/usr/local/scripts/rofi_modi_clipster.sh" --kb-row-select -show clipboard 
-
+# rofi for ssh
+bindsym $mod+s exec rofi -show ssh
 
 for_window [title="CSSH"] floating enable
  

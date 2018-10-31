@@ -1,4 +1,3 @@
-rofi.font:          liberation 14
-rofi.width:			20
-rofi.lines:   		40	
-#include "/usr/share/rofi/themes//solarized_alternate.theme"
+rofi:fixed-num-lines: false
+rofi.font: Liberation 15
+rofi.theme: /home/olivern/.config/rofi/themes/oliver.rasi
