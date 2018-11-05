@@ -55,10 +55,10 @@ bindsym $mod+period exec rofi -show run
 new_window 1pixel
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left workspace prev_on_output 
@@ -198,6 +198,8 @@ bindsym $mod+p exec ~/Sync/git/rofi-pass/rofi-pass
 bindsym Ctrl+q exec rofi -modi "clipboard:/usr/local/scripts/rofi_modi_clipster.sh" --kb-row-select -show clipboard 
 # rofi for ssh
 bindsym $mod+s exec rofi -show ssh
+# rofi todo
+bindsym $mod+l exec rofi -modi todo:/usr/local/scripts/rofi_todo.sh -key-todo -show todo
 
 for_window [title="CSSH"] floating enable
  
