@@ -8,15 +8,19 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins go here
 Plug 'pearofducks/ansible-vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tmhedberg/SimpylFold'
 Plug 'Valloric/YouCompleteMe'
-Plug 'scrooloose/syntastic'
-Plug 'jnurmine/Zenburn'
+Plug 'vim-syntastic/syntastic'
 Plug 'vim-python/python-syntax'
 Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+" unused atm
+" Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'jnurmine/Zenburn'
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'tmhedberg/SimpylFold'
 
 "augroup load_us_ycm
 " autocmd!
@@ -36,6 +40,22 @@ call plug#end()
 " Note that some features may error out or behave incorrectly.
 " Please do not report bugs unless you're using Vim 7.4.1689 or newer.
 
+"""""""" syntastic settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"""""""" syntastic settings
+
+
+" watch for extra whitespace:
+au BufRead,BufNewFile *.yml,*.yaml,*.py,*.pyw,*.c,*.h 
+    \ match BadWhitespace /\s\+$/
+
 let g:go_version_warning = 0
 
 set number
@@ -49,6 +69,7 @@ set t_Co=256
 "colorscheme twilight256
 colorscheme solarized 
 "colorscheme zenburn
+
 
 "YCM options
 let g:ycm_autoclose_preview_window_after_completion=1

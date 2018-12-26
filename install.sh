@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # homedir dotfiles
-DOTFILES=$(echo .gitignore .bash* .vim* .Xres*)
+DOTFILES=$(echo .gitignore .bash* .vim* .Xres* .taskrc)
 
 for file in $DOTFILES 
  do 

@@ -176,6 +176,20 @@ complete -W "$(echo $( sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oa
 complete -W "$(ls -a $PWD && echo $( sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then grep address /work/oanda_hosts | sed s/has\ address//g   | awk 'BEGIN{RS="  "} 1' | sort -u ; fi  ))" scp
 complete -W "$(echo $( sed 's/[, ].*//' < ~/.ssh/known_hosts ;  if [ -f /work/oanda_hosts ] ; then grep address /work/oanda_hosts | sed s/has\ address//g   | awk 'BEGIN{RS="  "} 1' | sort -u ; fi  ))" rdiff 
 
+source <(kubectl completion bash)
+
+_gopass_bash_autocomplete() {
+      local cur opts base
+      COMPREPLY=()
+      cur="${COMP_WORDS[COMP_CWORD]}"
+      opts=$( ${COMP_WORDS[@]:0:$COMP_CWORD} --generate-bash-completion )
+      local IFS=$'\n'
+      COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+      return 0
+}
+ 
+complete -F _gopass_bash_autocomplete gopass
+
 
 export PASSWORD_STORE_DIR=~/Sync/pass
 
@@ -183,7 +197,7 @@ export GOPATH=$HOME/Sync/work/golang
 export GOBIN=$GOPATH/bin
 
 # control the PATH
-export PATH="/usr/local/bin:/usr/bin:/bin:$HOME/Sync/git/fzf/bin:$HOME/Sync/work/golang/bin:$HOME/Sync/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:$HOME/Sync/git/fzf/bin:$HOME/Sync/work/golang/bin:$HOME/Sync/bin:/usr/local/go/bin"
 
 
 

@@ -1,3 +1,5 @@
 rofi:fixed-num-lines: false
 rofi.font: Liberation 15
 rofi.theme: /home/olivern/.config/rofi/themes/oliver.rasi
+rofi.matching: fuzzy
+#include "/usr/share/rofi/themes//oliver.theme"

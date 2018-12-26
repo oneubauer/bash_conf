@@ -1,0 +1,1 @@
+/home/olivern/Sync/git/bash_conf/.Xresources.d

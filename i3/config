@@ -165,19 +165,25 @@ bindsym $mod+d mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
+#bar {
        #status_command i3status 
-       status_command py3status -c ~/.config/i3/i3status.conf 
-        position top
-}
+       #mode hide
+       #hidden_state hide
+       #modifier Mod4
+       #status_command /usr/local/scripts/conky-i3bar.sh 
+       #status_command /usr/bin/i3status 
+       #status_command i3blocks 
+#       font pango:Liberation 9 
+#       status_command py3status 
+#       position top
+#}
 
 # custom binds
 bindsym $mod+b exec /opt/firefox/firefox 
-bindsym $mod+i exec /usr/bin/google-chrome --incognito  --user-data-dir=~/.config/google-chrome-incognito
+bindsym $mod+i exec /usr/bin/google-chrome --incognito  --user-data-dir=$HOME/.config/google-chrome-incognito
 bindsym $mod+c exec /usr/bin/google-chrome 
 bindsym $mod+t exec /opt/Telegram/Telegram 
-bindsym $mod+a exec xscreensaver-command -lock 
-#bindsym $mod+a exec gnome-screensaver-command -l 
+bindsym $mod+a exec /usr/bin/mate-screensaver-command -l 
 
 
 # window handling
@@ -196,23 +202,31 @@ bindsym $mod+Print exec  scrot -u -e 'mv $f ~/Screenshots/ 2>/dev/null'
 bindsym $mod+p exec ~/Sync/git/rofi-pass/rofi-pass 
 # rofi for clipboard
 bindsym Ctrl+q exec rofi -modi "clipboard:/usr/local/scripts/rofi_modi_clipster.sh" --kb-row-select -show clipboard 
+bindsym $mod+q exec rofi -modi "clipboard:/usr/local/scripts/rofi_modi_clipster.sh" --kb-row-select -show clipboard 
 # rofi for ssh
-bindsym $mod+s exec rofi -show ssh
+#bindsym $mod+s exec rofi -show ssh
 # rofi todo
-bindsym $mod+l exec rofi -modi todo:/usr/local/scripts/rofi_todo.sh -key-todo -show todo
+#bindsym $mod+l exec rofi -modi "todo_personal:/usr/local/scripts/rofi_todo.sh personal" -key-todo -show todo_personal -width 80
+#bindsym $mod+k exec rofi -modi "todo_work:/usr/local/scripts/rofi_todo.sh work" -key-todo -show todo_work -width 80
+
+# rofi k8s cluster changer:
+bindsym $mod+k exec rofi -modi "kubectx:/usr/local/scripts/rofi_modi_k8_cluster.sh" -key-todo -show kubectx -width 80
+
 
 for_window [title="CSSH"] floating enable
+for_window [title="Top panel"] floating enable
  
 #exec --no-startup-id /usr/local/scripts/runonce.sh parcellite
 exec --no-startup-id ~/Sync/bin/clipster -d -f ~/Sync/git/bash_conf/clipster.ini
-exec --no-startup-id xscreensaver -nosplash  &
+#exec --no-startup-id xscreensaver -nosplash  &
 exec --no-startup-id dropbox start
-exec --no-startup-id /usr/local/scripts/runonce.sh nm-applet
-exec --no-startup-id /usr/local/scripts/runonce.sh xfce4-power-manager
+#exec --no-startup-id /usr/local/scripts/runonce.sh nm-applet
+#exec --no-startup-id /usr/local/scripts/runonce.sh xfce4-power-manager
 exec --no-startup-id /usr/local/scripts/runonce.sh /usr/bin/urxvtd -q -o -f
 exec --no-startup-id /opt/browserpass/browserpass-linux64 
 exec --no-startup-id xmodmap -e "keycode 115 = Insert"
-exec --no-startup-id synclient RightButtonAreaTop=0 RightButtonAreaLeft=0 
+exec --no-startup-id  /usr/bin/blueman-applet 
+exec --no-startup-id /usr/bin/nitrogen --restore
 
 #exec --no-startup-id dbus-send \
 #    --session \
