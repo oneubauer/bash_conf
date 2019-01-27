@@ -55,6 +55,8 @@ call plug#end()
 " watch for extra whitespace:
 au BufRead,BufNewFile *.yml,*.yaml,*.py,*.pyw,*.c,*.h 
     \ match BadWhitespace /\s\+$/
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:go_version_warning = 0
 

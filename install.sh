@@ -18,3 +18,7 @@ for file in $CONFIGFILES
    ln -s $PWD/$file $HOME/.config/$file
  done
 
+# other sync symlinks
+
+ln -s	/home/olivern/Sync/gnupg  	/home/olivern/.gnupg
+ln -s 	/home/olivern/Sync/gopass 	/home/olivern/.config/

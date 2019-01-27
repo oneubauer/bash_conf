@@ -50,6 +50,10 @@ alias rvimdiff='function rvimdiff_func {
              vimdiff <(ssh $1 "grep -v -e ^# -e ^$ $3 | sort") <(ssh $2 "grep -v -e ^# -e ^$ $3 | sort ")
              }; rvimdiff_func '
 
+alias mkdircd='function mkdircd_func {
+             mkdir -p $1 && cd $1 
+             }; mkdircd_func'
+
 alias did="vim  +'normal Go' +'r!date' +'normal Go' " 
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
@@ -58,3 +62,8 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 alias vi='vim'
 
 alias kc='kubectl'
+
+# pretty print json but allow normal lines to print too (for mixed json logs)
+alias mixedjq='jq -rCR '\''. as $raw | try fromjson catch $raw'\'''
+
+alias yq='yq.v2'

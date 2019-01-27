@@ -196,10 +196,16 @@ export PASSWORD_STORE_DIR=~/Sync/pass
 export GOPATH=$HOME/Sync/work/golang
 export GOBIN=$GOPATH/bin
 
+# AWS  for ecobee
+export AWS_ACCESS_KEY_ID=$(cat /home/olivern/Sync/work-ecobee/aws/key_id)
+export AWS_SECRET_ACCESS_KEY=$(cat /home/olivern/Sync/work-ecobee/aws/key_secret)
+
 # control the PATH
 export PATH="/usr/local/bin:/usr/bin:/bin:$HOME/Sync/git/fzf/bin:$HOME/Sync/work/golang/bin:$HOME/Sync/bin:/usr/local/go/bin"
 
-
+# don't capture ctrl-s (urxvt does this)
+# details: https://bbs.archlinux.org/viewtopic.php?id=140902
+stty -ixon
 
 
 if [ -f /opt/dev_tools/current/bin/setup_devtools ]
@@ -220,3 +226,5 @@ if [ -f '/opt/google-cloud-sdk/path.bash.inc' ]; then . '/opt/google-cloud-sdk/p
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/opt/google-cloud-sdk/completion.bash.inc' ]; then . '/opt/google-cloud-sdk/completion.bash.inc'; fi
+
+eval "$(direnv hook bash)"
